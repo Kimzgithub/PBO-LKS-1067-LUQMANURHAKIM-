@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perpustakaan</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
+
+    <header class="bg-blue-700 text-white shadow">
+        <div class="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
+            <a href="#/dashboard" class="text-lg font-semibold tracking-tight">Perpustakaan</a>
+
+            <nav id="main-nav" class="flex gap-1 text-sm" aria-label="Menu utama">
+                <a href="#/dashboard" data-route="/dashboard" class="nav-link rounded px-3 py-1.5">Dashboard</a>
+                <a href="#/books" data-route="/books" class="nav-link rounded px-3 py-1.5">Buku</a>
+                <a href="#/categories" data-route="/categories" class="nav-link rounded px-3 py-1.5">Kategori</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app" class="mx-auto max-w-5xl px-4 py-8">
+        <p class="text-slate-500">Memuat aplikasi...</p>
+    </main>
+
+    <!-- Notifikasi (toast) muncul di kanan atas -->
+    <div id="toast-container" class="fixed right-4 top-4 z-50 flex w-80 max-w-[calc(100vw-2rem)] flex-col gap-2" aria-live="polite"></div>
+
+    <!-- Tempat modal form & konfirmasi -->
+    <div id="modal-root"></div>
+
+    <!-- Urutan script penting: config → utils → api → pages → app -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/pages/dashboard.js"></script>
+    <script src="js/pages/books.js"></script>
+    <script src="js/pages/categories.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

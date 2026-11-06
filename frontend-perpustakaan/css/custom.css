@@ -1,0 +1,81 @@
+/* Styling tambahan di luar utility class Tailwind */
+
+/* Menu aktif pada header */
+.nav-link {
+    color: rgb(219 234 254); /* blue-100 */
+    transition: background-color 120ms ease, color 120ms ease;
+}
+.nav-link:hover {
+    background-color: rgb(29 78 216); /* blue-700 lebih gelap */
+    color: #fff;
+}
+.nav-link[aria-current="page"] {
+    background-color: #fff;
+    color: rgb(29 78 216);
+    font-weight: 600;
+}
+
+/* Fokus keyboard yang jelas */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid rgb(37 99 235);
+    outline-offset: 2px;
+}
+.nav-link:focus-visible {
+    outline-color: #fff;
+}
+
+/* Tabel */
+.data-table tbody tr:hover {
+    background-color: rgb(248 250 252);
+}
+
+/* Toast: muncul dari kanan, sebagai respons atas aksi pengguna */
+.toast {
+    animation: toast-in 180ms ease-out;
+}
+.toast.is-leaving {
+    opacity: 0;
+    transform: translateX(12px);
+    transition: opacity 160ms ease, transform 160ms ease;
+}
+@keyframes toast-in {
+    from { opacity: 0; transform: translateX(12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Modal */
+.modal-overlay {
+    animation: fade-in 120ms ease-out;
+}
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Indikator memuat */
+.spinner {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid rgb(203 213 225);
+    border-top-color: rgb(37 99 235);
+    border-radius: 9999px;
+    animation: spin 700ms linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toast,
+    .modal-overlay,
+    .spinner {
+        animation-duration: 1ms;
+        animation-iteration-count: 1;
+    }
+    .toast.is-leaving {
+        transition: none;
+    }
+}
